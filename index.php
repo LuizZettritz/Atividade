@@ -1,90 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda De Eventos da ETEC</title>
-<style>
+    <title>Agenda ETEC</title>
+
+    <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0b1f3a;
+            background-color: #0a192f;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            color: #ffffff;
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
-            margin-top: 30px;
-            color: #ffffff;
+            background-color: #112240;
+            padding: 20px;
+            margin: 0;
         }
 
         h2 {
-            text-align: center;
-            color: #a9c9ff;
+            color: #64ffda;
+        }
+
+        a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         form {
-            background-color: #132f57;
-            max-width: 400px;
-            margin: 30px auto;
-            padding: 25px;
+            background-color: #112240;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        label {
-            font-weight: bold;
-            color: #cfe2ff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
         input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #2a4d80;
+            width: 90%;
+            padding: 8px;
+            border: none;
             border-radius: 5px;
-            background-color: #0b1f3a;
-            color: white;
-        }
-
-        input:focus {
-            border-color: #4da3ff;
-            outline: none;
         }
 
         button {
-            width: 100%;
-            padding: 12px;
-            background-color: #1f4e8c;
-            color: white;
+            background-color: #64ffda;
+            color: #0a192f;
             border: none;
+            padding: 10px 20px;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         button:hover {
-            background-color: #163a6b;
+            background-color: #52e0c4;
         }
-</style>
+
+        hr {
+            border: 1px solid #233554;
+            width: 80%;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>Agenda de Eventos da ETEC</h1>
 
-    <h2>Consultar Eventos</h2>
-    <form action="api.php?metodo=post" method="POST">
-        <label>Título:</label><br>
-        <input type="text" name="titulo" required><br><br>
+<h1>Agenda de Eventos da ETEC</h1>
 
-        <label>Data:</label><br>
-        <input type="date" name="data" required><br><br>
+<h2>Consultar Eventos</h2>
+<a href="get.php" target="_blank">Ver eventos (GET)</a>
 
-        <label>Local:</label><br>
-        <input type="text" name="local" required><br><br>
+<hr>
 
-        <button type="submit">Cadastrar</button>
-    </form>
+<h2>Cadastrar Evento</h2>
+
+<form method="POST" action="post.php">
+    <label>Título:</label><br>
+    <input type="text" name="titulo" required><br><br>
+
+    <label>Data:</label><br>
+    <input type="date" name="data" required><br><br>
+
+    <label>Local:</label><br>
+    <input type="text" name="local" required><br><br>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
 </body>
 </html>

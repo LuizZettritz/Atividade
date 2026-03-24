@@ -1,26 +1,30 @@
 <?php
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 
-// Recebe dados do formulário
-$titulo = $_POST['titulo'] ?? '';
-$data = $_POST['data'] ?? '';
-$local = $_POST['local'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-// Simulação de ID automático
-$id = 4;
+   $titulo = $_POST['titulo'] ?? '';
+   $data = $_POST['data'] ?? '';
+   $local = $_POST['local'] ?? '';
 
-$response = [
-   "status" => "sucesso",
-   "metodo" => "POST",
-   "tema" => "Agenda de Eventos da ETEC",
-   "mensagem" => "Evento cadastrado com sucesso.",
-   "evento" => [
-      "id" => $id,
-      "titulo" => $titulo,
-      "data" => $data,
-      "local" => $local
-   ]
-];
+   $resposta = [
+      "status" => "sucesso",
+      "metodo" => "POST",
+      "tema" => "Agenda de Eventos da ETEC",
+      "mensagem" => "Evento cadastrado com sucesso.",
+      "evento" => [
+         "id" => 4,
+         "titulo" => $titulo,
+         "data" => $data,
+         "local" => $local
+      ]
+   ];
 
-echo json_encode($response, JSON_PRETTY_PRINT);
-?>
+   echo json_encode($resposta, JSON_PRETTY_PRINT);
+
+} else {
+   echo json_encode([
+      "status" => "erro",
+      "mensagem" => "Método inválido"
+   ]);
+}
